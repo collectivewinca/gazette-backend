@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+}
+
+@layer components {
+  .thick-rule {
+    @apply border-t-[3px] border-ink;
+    position: relative;
+  }
+  .thick-rule::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .gazette-card {
+    @apply bg-white rounded border border-rule-light p-4 transition-all;
+  }
+  .gazette-card:hover {
+    @apply shadow-md border-rule;
+  }
+
+  .nfc-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold;
+    @apply bg-gazette-nfc/10 text-gazette-nfc;
+  }
+
+  .section-label {
+    @apply font-mono text-[10px] font-bold tracking-[3px] text-gazette-red uppercase;
+  }
+}
